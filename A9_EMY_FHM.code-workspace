@@ -1,7 +1,200 @@
-{
-	"folders": [
-		{
-			"path": "../OneDrive/Escritorio/A4_EMY.Archive"
-		}
-	]
-}
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=3.0" /> 
+  <title>Wiki Usabilidad</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #f4f4f4; 
+    } 
+
+    .encabezado { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background-color: #333; 
+      color: white; 
+      padding: 10px 20px; 
+    } 
+
+    .icono { 
+      background: none; 
+      border: none; 
+      color: white; 
+      font-size: 24px; 
+      cursor: pointer; 
+    } 
+
+    .contenedor {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .subtitulo {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .boton-principal, .boton-extra {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .botones-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .botones-grid a {
+      background-color: #6c757d;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .imagen-central {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .info-herramientas, .info-ejemplos, .info-pruebas, .info-definicion {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .video-container {
+      margin-top: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+
+    #btn-subir {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function toggleInfo(id) {
+      const info = document.getElementById(id);
+      info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function subirArriba() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</head> 
+<body> 
+  <header class="encabezado"> 
+    <button class="icono">&#9776;</button>
+    <h1>Wiki</h1>
+    <button class="icono">&#128269;</button>
+  </header>
+
+  <main class="contenedor">
+    <h2 class="subtitulo">¿Alguna vez te has perdido en una página?<br>Así no debería ser.</h2>
+    <button class="boton-principal">Explorar Wiki</button>
+
+    <img src="img/monitor.png" alt="Imagen de monitor" class="imagen-central" />
+
+    <div class="botones-grid">
+      <a href="#" class="btn-grid" onclick="toggleInfo('info-definicion')">¿Qué es la usabilidad?</a>
+      <a href="#" class="btn-grid" onclick="toggleInfo('info-herramientas')">Herramientas</a>
+      <a href="#" class="btn-grid" onclick="toggleInfo('info-pruebas')">Tipos de pruebas</a>
+      <a href="#" class="btn-grid" onclick="toggleInfo('info-ejemplos')">Ejemplos</a>
+    </div>
+
+    <div id="info-definicion" class="info-definicion">
+      <p>La idea principal es que la mejor experiencia de usuario es aquella que pasa desapercibida, porque todo funciona de forma natural, sin esfuerzo ni confusión. El diseño de experiencias no se trata solo de hacer que algo se vea bien, sino de crear interacciones tan intuitivas que el usuario ni siquiera piense en el diseño. Para lograr eso, es necesario entender cómo piensan, sienten y actúan las personas al usar productos digitales, antes de diseñar cualquier cosa.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/2P5dqEVZrWw" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="info-herramientas" class="info-herramientas">
+      <p><strong>Textuales:</strong> Historias breves, metáforas visuales y analogías que conecten con la vida cotidiana. También glosarios comparativos: “esto es diseño = esto es buena experiencia”.</p>
+      <p><strong>Gráficos:</strong> Cómics y diagramas de interacción tipo storyboard. Infografías que comparen la experiencia con y sin diseño centrado en el usuario.</p>
+      <p><strong>Audiovisuales:</strong> Animaciones sin voz que muestran cómo una mala o buena experiencia se vive desde la perspectiva del usuario.</p>
+      <p><strong>Interactivos:</strong> Simulaciones con pequeñas tareas: elegir cuál interfaz usarías en una situación de estrés o tiempo limitado, o incluso retos rápidos tipo: “Encuentra el botón correcto en 5 segundos”.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/s4IO9P-a664" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="info-pruebas" class="info-pruebas">
+      <p>🧪 <strong>Pruebas de Usuario (User Testing)</strong><br>
+      <em>Objetivo:</em> Ver si el mensaje se entiende como esperas.<br>
+      <strong>Prueba de comprensión de narrativa:</strong> Muestra la secuencia a los usuarios y pregúntales qué entendieron. Evalúa si captaron la metáfora del diseño invisible.<br>
+      <strong>Prueba de pensamiento en voz alta:</strong> Haz que el usuario describa lo que siente o piensa mientras ve la historia. Identifica si el giro narrativo genera el contraste emocional deseado.</p>
+
+      <p>👁️‍🗨️ <strong>Pruebas de Usabilidad (UX)</strong><br>
+      <em>Objetivo:</em> Medir si el formato cómic interactivo no entorpece la navegación ni la comprensión.<br>
+      <strong>Prueba de escaneo visual (Eye tracking):</strong> Evalúa si el usuario sigue correctamente el flujo visual de la historia. Mide si el giro final (el contraste) recibe atención.<br>
+      <strong>Test de navegación libre:</strong> Observa si los usuarios interactúan con la historia sin indicaciones. Evalúa si la interfaz comunica sin necesidad de instrucciones.</p>
+
+      <p>🧠 <strong>Pruebas de Retención y Recordación</strong><br>
+      <em>Objetivo:</em> Medir qué tanto se queda con el mensaje después de unos minutos.<br>
+      <strong>Recall test (prueba de recuerdo):</strong> Luego de navegar por la web, pregúntales: “¿Qué idea principal recuerdas de la historia del aeropuerto?”<br>
+      <strong>Test A/B con versiones narrativas distintas:</strong> A un grupo le muestras solo el texto; al otro, el cómic interactivo. Evalúas cuál versión comunica mejor el concepto del "diseño invisible".</p>
+
+      <p>💬 <strong>Pruebas de Impacto Emocional</strong><br>
+      <em>Objetivo:</em> Ver si el contraste final genera reflexión o conexión emocional.<br>
+      <strong>Prueba de asociación emocional:</strong> Usa escalas tipo “¿Qué emociones te generó esta experiencia?” Mide si el usuario se siente frustrado con el escenario mal diseñado.</p>
+
+      <p>📊 <strong>Pruebas de Conversión o Enganche</strong><br>
+      <em>Objetivo:</em> Ver si la historia motiva a seguir navegando o explorando más.<br>
+      <strong>Heatmaps / Scrollmaps:</strong> Identifica si los usuarios se quedan en la historia o la omiten. Mide dónde abandonan o si llegan hasta el contraste final.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/MCn3MxfUk7w" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="info-ejemplos" class="info-ejemplos">
+      <p><strong>Referencias a principios del diseño universal:</strong> Un diseño centrado en el usuario, heurísticas de Nielsen y estudios de psicología cognitiva aplicada al diseño.</p>
+      <p><strong>Secciones tipo “Desmontando el diseño”:</strong> En donde se analiza un producto cotidiano y se explica cómo funciona su experiencia sin que lo notemos.</p>
+      <p><strong>Micro Entrevistas o testimonios de usuarios reales:</strong> Aquellos que hablan de productos que “simplemente funcionan”.</p>
+      <p><strong>Toolkit descargable:</strong> Un mini-manual de “cómo saber si tu diseño es invisible”, con listas de comprobación, ejemplos de errores comunes y principios clave ilustrados.</p>
+      <p><strong>Validación externa:</strong> Incluir enlaces a artículos académicos y recursos profesionales actualizados.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/xKx15C7BDyA" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <button class="boton-extra">Recursos adicionales</button>
+  </main>
+
+  <button id="btn-subir" onclick="subirArriba()">⬆</button>
+</body>
+</html>
